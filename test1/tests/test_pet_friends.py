@@ -29,8 +29,8 @@ def test_get_all_pets_with_valid_key(filter=''):
     assert len(result['pets']) > 0
 
 
-def test_add_new_pet_with_valid_data(name='Шарик', animal_type='сибирский',
-                                     age='1', pet_photo='images/cat.jpg'):
+def test_add_new_pet_with_valid_data(name='Барсик', animal_type='сибирский',
+                                     age='5', pet_photo='images/cat.jpg'):
     """Проверяем что можно добавить питомца с корректными данными"""
 
     # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
@@ -71,7 +71,7 @@ def test_successful_delete_self_pet():
     assert pet_id not in my_pets.values()
 
 
-def test_successful_update_self_pet_info(name='Коля', animal_type='Шотландец', age=5):
+def test_successful_update_self_pet_info(name='Кузя', animal_type='Шотландец', age=5):
     """Проверяем возможность обновления информации о питомце"""
 
     # Получаем ключ auth_key и список своих питомцев
@@ -88,7 +88,7 @@ def test_successful_update_self_pet_info(name='Коля', animal_type='Шотл�
 
 
 # Мой тест 1
-def test_add_new_pet_without_photo_with_valid_data(name='Барс', animal_type='Дворовый кот', age='4'):
+def test_add_new_pet_without_photo_with_valid_data(name='Люся', animal_type='Британская', age='3'):
     """Проверяем, что можно добавить питомца с корректными данными без фото"""
 
     # Запрашиваем ключ api и сохраняем в переменую auth_key
@@ -123,7 +123,7 @@ def test_add_pet_new_photo(pet_photo='images/cat_b.jpeg'):
 
 
 # Мой тест 3
-def test_post_empty_age_new_pets(name = 'Васька', animal_type = 'собока', age = '', pet_photo = 'images/12.jpg'):
+def test_post_empty_age_new_pets(name = 'Лайка', animal_type = 'собока', age = '', pet_photo = 'images/dog.jpg'):
     '''Проверяем что можно создать карточку животного с пустым полем возраст'''
     try:
         pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -159,10 +159,10 @@ def test_get_api_key_for_invalid_user_password(email=valid_email, password='123t
 
 
 # Мой тест 6
-def test_add_new_pet_with_negative_age(name='Мурзик', animal_type='Дворовый',
-                                       age='-1', pet_photo='images/cat.jpg'):
+def test_add_new_pet_with_negative_age(name='Рик', animal_type='Сибирский кот',
+                                       age='-5', pet_photo='images/cat.jpg'):
     """Проверяем, что нельзя добавить питомца с отрицательным возрастом
-    !!!Баг- сайт позволяет добавить питомца с отрицательным возрастом"""
+    Баг- сайт позволяет добавить питомца с отрицательным возрастом"""
 
     # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -179,8 +179,8 @@ def test_add_new_pet_with_negative_age(name='Мурзик', animal_type='Дво�
 
 
 # Мой тест 7
-def test_add_new_pet_with_too_old_age(name='Пес', animal_type='доберман',
-                                       age='1000', pet_photo='images/cat.jpg'):
+def test_add_new_pet_with_too_old_age(name='Майк', animal_type='доберман',
+                                       age='1000', pet_photo='images/dog.jpg'):
     """Проверяем, что нельзя добавить питомца, указав слишком большой возраст (больше 50)
     !!Баг - сайт позволяет добавить питомца, указав слишком большой возраст"""
 
@@ -199,7 +199,7 @@ def test_add_new_pet_with_too_old_age(name='Пес', animal_type='доберма
 
 
 # Мой тест 8
-def test_add_new_pet_with_invalid_age(name='Ореш', animal_type='доберман',
+def test_add_new_pet_with_invalid_age(name='Кора', animal_type='сиамская',
                                        age='', pet_photo='images/cat.jpg'):
     """Проверяем что нельзя добавить питомца, не указав возраст
     !!Баг - сайт позволяет добавить питомца, не указав возраст"""
